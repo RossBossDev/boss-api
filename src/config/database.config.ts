@@ -5,5 +5,5 @@ export const databaseConfig: TypeOrmModuleOptions = {
   url: process.env.DATABASE_URL,
   autoLoadEntities: true,
   synchronize: false,
-  ssl: false,
+  ssl: process.env.NODE_ENV === 'production',
 };
