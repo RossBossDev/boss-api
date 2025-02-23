@@ -4,10 +4,14 @@ import { ExampleService } from './example.service';
 
 @Controller('example')
 export class ExampleController {
-  constructor(private readonly exampleService: ExampleService) {}
+  private readonly exampleService: ExampleService;
+
+  constructor(exampleService: ExampleService) {
+    this.exampleService = exampleService;
+  }
 
   @Get()
-  async findAll(): Promise<Example[]> {
+  findAll(): Promise<Example[]> {
     return this.exampleService.findAll();
   }
 

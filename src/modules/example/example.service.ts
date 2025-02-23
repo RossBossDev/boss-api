@@ -5,12 +5,16 @@ import { Example } from './entities/example.entity';
 
 @Injectable()
 export class ExampleService {
+  private readonly exampleRepository: Repository<Example>;
+
   constructor(
     @InjectRepository(Example)
-    private readonly exampleRepository: Repository<Example>,
-  ) {}
+    exampleRepository: Repository<Example>,
+  ) {
+    this.exampleRepository = exampleRepository;
+  }
 
-  async findAll(): Promise<Example[]> {
+  findAll(): Promise<Example[]> {
     return this.exampleRepository.find();
   }
 
