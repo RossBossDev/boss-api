@@ -11,6 +11,14 @@ COPY .yarnrc.yml ./.yarnrc.yml
 COPY package*.json yarn.lock ./
 COPY tsconfig*.json ./
 
+FROM node:22-slim as development
+WORKDIR /usr/src/app
+COPY .yarn ./.yarn
+COPY .yarnrc.yml ./
+COPY package.json yarn.lock ./
+RUN yarn install
+COPY . .
+
 FROM base AS dependencies
 ENV NODE_ENV=development
 RUN yarn install --immutable
