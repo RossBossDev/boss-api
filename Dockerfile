@@ -37,8 +37,6 @@ RUN apt-get update && apt-get install -y curl
 
 COPY --from=prod-dependencies /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/dist ./dist
-COPY --from=build /usr/src/app/src/migrations ./src/migrations
-COPY --from=build /usr/src/app/src/config/data-source.js ./src/config/data-source.js
 
 # Add migration script
 COPY docker-entrypoint.sh /usr/local/bin/
