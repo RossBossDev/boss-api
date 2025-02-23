@@ -7,6 +7,6 @@ export const AppDataSource = new DataSource({
     process.env.DATABASE_URL ||
     'postgresql://postgres:postgres@localhost:5432/boss_db?schema=public',
   entities: [Example],
-  migrations: ['src/migrations/*.ts'],
+  migrations: ['src/migrations/*.ts', 'dist/migrations/*.js'],
   synchronize: false,
 });
