@@ -33,7 +33,8 @@ RUN yarn install --immutable
 FROM node:22-slim as release
 WORKDIR /usr/src/app
 
-RUN apt-get update && apt-get install -y curl
+# Install netcat-openbsd along with curl
+RUN apt-get update && apt-get install -y curl netcat-openbsd
 
 COPY --from=prod-dependencies /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/dist ./dist
