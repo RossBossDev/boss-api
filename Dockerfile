@@ -16,7 +16,7 @@ ENV NODE_ENV=development
 RUN yarn install --immutable
 
 FROM dependencies AS build
-COPY src/nest/ ./src/nest/
+COPY . .
 RUN yarn build
 
 FROM base AS prod-dependencies
