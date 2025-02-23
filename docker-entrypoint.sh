@@ -1,20 +1,6 @@
 #!/bin/sh
 set -e
 
-# Wait for database
-timeout=60
-until nc -z db 5432 || [ $timeout -le 0 ]
-do
-  echo "Waiting for database connection..."
-  sleep 1
-  timeout=$((timeout-1))
-done
-
-if [ $timeout -le 0 ]; then
-  echo "Database connection timeout"
-  exit 1
-fi
-
 # Run migrations with retries
 max_retries=5
 retry_count=0
