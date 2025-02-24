@@ -1378,6 +1378,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@main-boss-monorepo/backend@workspace:apps/backend":
+  version: 0.0.0-use.local
+  resolution: "@main-boss-monorepo/backend@workspace:apps/backend"
+  dependencies:
+    "@inertify/core": "npm:^0.1.0"
+    "@inertify/express": "npm:^0.1.0"
+    "@inertify/nest": "npm:^0.1.0"
+    "@nestjs/cli": "npm:^11.0.0"
+    "@nestjs/common": "npm:^11.0.1"
+    "@nestjs/config": "npm:^4.0.0"
+    "@nestjs/core": "npm:^11.0.1"
+    "@nestjs/platform-express": "npm:^11.0.1"
+    "@nestjs/schematics": "npm:^11.0.0"
+    "@nestjs/testing": "npm:^11.0.1"
+    "@nestjs/typeorm": "npm:^11.0.0"
+    "@swc/cli": "npm:^0.6.0"
+    "@swc/core": "npm:^1.10.7"
+    "@types/express": "npm:^5.0.0"
+    "@types/jest": "npm:^29.5.14"
+    "@types/node": "npm:^22.10.7"
+    "@types/pg": "npm:^8"
+    "@types/supertest": "npm:^6.0.2"
+    globals: "npm:^15.14.0"
+    jest: "npm:^29.7.0"
+    pg: "npm:^8.13.3"
+    reflect-metadata: "npm:^0.2.2"
+    rxjs: "npm:^7.8.1"
+    source-map-support: "npm:^0.5.21"
+    supertest: "npm:^7.0.0"
+    ts-jest: "npm:^29.2.5"
+    ts-loader: "npm:^9.5.2"
+    ts-node: "npm:^10.9.2"
+    tsconfig-paths: "npm:^4.2.0"
+    typeorm: "npm:^0.3.20"
+    typescript: "npm:^5.7.3"
+  languageName: unknown
+  linkType: soft
+
 "@main-boss-monorepo/frontend@workspace:apps/frontend":
   version: 0.0.0-use.local
   resolution: "@main-boss-monorepo/frontend@workspace:apps/frontend"
@@ -3444,44 +3482,6 @@ __metadata:
   checksum: 10c0/aec9bb327ba025808f04f86350ae9152ff9a6a8bc7429b69827cb7721b09f477ffd5e18cc954152a6a259b765322e33ebc4c50ab940f66d8e45ff1466e49ff2e
   languageName: node
   linkType: hard
-
-"boss-api@workspace:apps/backend":
-  version: 0.0.0-use.local
-  resolution: "boss-api@workspace:apps/backend"
-  dependencies:
-    "@inertify/core": "npm:^0.1.0"
-    "@inertify/express": "npm:^0.1.0"
-    "@inertify/nest": "npm:^0.1.0"
-    "@nestjs/cli": "npm:^11.0.0"
-    "@nestjs/common": "npm:^11.0.1"
-    "@nestjs/config": "npm:^4.0.0"
-    "@nestjs/core": "npm:^11.0.1"
-    "@nestjs/platform-express": "npm:^11.0.1"
-    "@nestjs/schematics": "npm:^11.0.0"
-    "@nestjs/testing": "npm:^11.0.1"
-    "@nestjs/typeorm": "npm:^11.0.0"
-    "@swc/cli": "npm:^0.6.0"
-    "@swc/core": "npm:^1.10.7"
-    "@types/express": "npm:^5.0.0"
-    "@types/jest": "npm:^29.5.14"
-    "@types/node": "npm:^22.10.7"
-    "@types/pg": "npm:^8"
-    "@types/supertest": "npm:^6.0.2"
-    globals: "npm:^15.14.0"
-    jest: "npm:^29.7.0"
-    pg: "npm:^8.13.3"
-    reflect-metadata: "npm:^0.2.2"
-    rxjs: "npm:^7.8.1"
-    source-map-support: "npm:^0.5.21"
-    supertest: "npm:^7.0.0"
-    ts-jest: "npm:^29.2.5"
-    ts-loader: "npm:^9.5.2"
-    ts-node: "npm:^10.9.2"
-    tsconfig-paths: "npm:^4.2.0"
-    typeorm: "npm:^0.3.20"
-    typescript: "npm:^5.7.3"
-  languageName: unknown
-  linkType: soft
 
 "brace-expansion@npm:^1.1.7":
   version: 1.1.11
