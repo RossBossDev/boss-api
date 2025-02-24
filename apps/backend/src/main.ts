@@ -16,14 +16,15 @@ async function bootstrap() {
   app.setBaseViewsDir(join(__dirname, 'views'));
   app.setViewEngine('ejs');
 
-  app.use(
-    inertia({
-      manifest:
-        process.env.NODE_ENV === 'development'
-          ? null
-          : readManifest(join(__dirname, '../../public/.vite/manifest.json')),
-    }),
-  );
+  let manifest: any = undefined;
+
+  if (process.env.NODE_ENV !== 'development') {
+    manifest = await readManifest(
+      join(__dirname, '../../public/.vite/manifest.json'),
+    );
+  }
+
+  app.use(inertia(manifest));
 
   await app.listen(process.env.PORT ?? 3000);
 }
