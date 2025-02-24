@@ -1,24 +1,5 @@
 version: '3.8'
 services:
-  api:
-    build:
-      context: .
-      target: development
-    ports:
-      - '3000:3000'
-    environment:
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/boss_db
-      - NODE_ENV=development
-    depends_on:
-      - db
-    volumes:
-      - .:/usr/src/app
-      - ./.yarn:/usr/src/app/.yarn
-      - ./.yarnrc.yml:/usr/src/app/.yarnrc.yml
-      - yarn_cache:/usr/src/app/.yarn/cache
-      - /usr/src/app/node_modules
-    command: yarn dev
-
   db:
     image: postgres:16-alpine
     ports:
@@ -32,4 +13,3 @@ services:
 
 volumes:
   postgres_data:
-  yarn_cache:

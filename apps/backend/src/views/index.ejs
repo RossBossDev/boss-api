@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <% if (process.env.NODE_ENV === 'development') { %>
+    <!-- Scripts for development -->
+    <script type="module">
+        import RefreshRuntime from 'http://localhost:5173/@react-refresh'
+        RefreshRuntime.injectIntoGlobalHook(window)
+        window.$RefreshReg$ = () => { }
+        window.$RefreshSig$ = () => (type) => type
+        window.__vite_plugin_react_preamble_installed__ = true
+    </script>
+    <script type="module" src="http://localhost:5173/@vite/client"></script>
+    <script type="module" src="http://localhost:5173/src/main.tsx"></script>
+
+    <% } else { %>
+    <!-- Assets for production taken from generated manifest file -->
+    <link rel="stylesheet" href="/<%= manifest['main.ts'].css %>" />
+    <script type="module" src="/<%= manifest['main.ts'].file %>"></script>
+
+    <% } %>
+</head>
+
+<body>
+    <div id="app" data-page="<%= inertiaData %>"></div>
+</body>
+
+</html>

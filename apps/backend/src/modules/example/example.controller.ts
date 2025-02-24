@@ -1,4 +1,6 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Render } from '@inertify/nest';
+import { Controller, Get, Post, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { Example } from './entities/example.entity';
 import { ExampleService } from './example.service';
 
@@ -11,8 +13,11 @@ export class ExampleController {
   }
 
   @Get()
-  findAll(): Promise<Example[]> {
-    return this.exampleService.findAll();
+  @Render('example')
+  findAll() {
+    return {
+      examples: this.exampleService.findAll(),
+    };
   }
 
   @Post('seed')
