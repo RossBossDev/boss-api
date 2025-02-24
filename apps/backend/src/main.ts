@@ -20,7 +20,7 @@ async function bootstrap() {
 
   if (process.env.NODE_ENV !== 'development') {
     manifest = await readManifest(
-      join(__dirname, '../../public/.vite/manifest.json'),
+      join(__dirname, '../public/.vite/manifest.json'),
     );
   }
 
