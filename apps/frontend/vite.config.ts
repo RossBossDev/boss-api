@@ -7,9 +7,9 @@ export default defineConfig({
   build: {
     manifest: true,
     outDir: path.resolve(__dirname, '../../public'),
-    // rollupOptions: {
-    //   input: './src/main.tsx',
-    // },
+    rollupOptions: {
+      input: './src/main.tsx',
+    },
   },
   plugins: [react(), tailwindcss()],
   resolve: {

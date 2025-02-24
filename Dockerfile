@@ -37,7 +37,8 @@ WORKDIR /usr/src/app
 RUN apt-get update && apt-get install -y curl netcat-openbsd
 
 COPY --from=prod-dependencies /usr/src/app/node_modules ./node_modules
-COPY --from=build /usr/src/app/dist ./dist
+COPY --from=build /usr/src/app/public ./public
+COPY --from=build /usr/src/app/apps/backend/dist ./dist
 
 # Add migration script
 COPY docker-entrypoint.sh /usr/local/bin/
