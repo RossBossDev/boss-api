@@ -20,8 +20,8 @@
 
     <% } else { %>
     <!-- Assets for production taken from generated manifest file -->
-    <link rel="stylesheet" href="/<%= manifest['main.ts'].css %>" />
-    <script type="module" src="/<%= manifest['main.ts'].file %>"></script>
+    <link rel="stylesheet" href="/<%= manifest['src/main.tsx'].css %>" />
+    <script type="module" src="/<%= manifest['src/main.tsx'].file %>"></script>
 
     <% } %>
 </head>
