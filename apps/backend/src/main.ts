@@ -28,7 +28,7 @@ async function bootstrap() {
     manifest = await readManifest(join(publicPath, '.vite/manifest.json'));
   }
 
-  app.use(inertia({ manifest }));
+  app.use(inertia(manifest));
 
   await app.listen(process.env.PORT ?? 3000);
 }
