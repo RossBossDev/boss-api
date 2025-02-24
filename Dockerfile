@@ -1,5 +1,5 @@
 # Builder stage
-FROM --platform=linux/amd64 node:22-slim AS base
+FROM node:22-slim AS base
 WORKDIR /usr/src/app
 
 ENV YARN_VERSION=4.6.0
@@ -9,15 +9,9 @@ RUN corepack enable && corepack prepare yarn@${YARN_VERSION}
 COPY .yarn ./.yarn
 COPY .yarnrc.yml ./.yarnrc.yml
 COPY package*.json yarn.lock ./
+COPY apps/backend/package*.json ./apps/backend/
+COPY apps/frontend/package*.json ./apps/frontend/
 COPY tsconfig*.json ./
-
-FROM node:22-slim as development
-WORKDIR /usr/src/app
-COPY .yarn ./.yarn
-COPY .yarnrc.yml ./
-COPY package.json yarn.lock ./
-RUN yarn install
-COPY . .
 
 FROM base AS dependencies
 ENV NODE_ENV=development
@@ -30,7 +24,7 @@ RUN yarn build
 FROM base AS prod-dependencies
 RUN yarn install --immutable
 
-FROM node:22-slim as release
+FROM node:22-slim AS release
 WORKDIR /usr/src/app
 
 # Install netcat-openbsd along with curl
