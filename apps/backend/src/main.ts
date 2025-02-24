@@ -12,19 +12,23 @@ async function bootstrap() {
     new ExpressAdapter(),
   );
 
-  app.useStaticAssets(join(__dirname, '../../public'));
+  let publicPath = join(__dirname, '../public');
+
+  if (process.env.NODE_ENV === 'development') {
+    publicPath = join(__dirname, '../../public');
+  }
+
+  app.useStaticAssets(publicPath);
   app.setBaseViewsDir(join(__dirname, 'views'));
   app.setViewEngine('ejs');
 
   let manifest: any = undefined;
 
   if (process.env.NODE_ENV !== 'development') {
-    manifest = await readManifest(
-      join(__dirname, '../public/.vite/manifest.json'),
-    );
+    manifest = await readManifest(join(publicPath, '.vite/manifest.json'));
   }
 
-  app.use(inertia(manifest));
+  app.use(inertia({ manifest }));
 
   await app.listen(process.env.PORT ?? 3000);
 }
