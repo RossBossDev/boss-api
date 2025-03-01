@@ -16,7 +16,7 @@ export class ExampleController {
   @Render('example')
   async findAll() {
     return {
-      examples: await this.exampleService.findAll(),
+      examples: await this.exampleService.findAllCategories(),
     };
   }
 
