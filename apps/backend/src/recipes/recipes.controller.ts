@@ -31,6 +31,7 @@ export class RecipesController {
 
         return {
             featuredRecipes: featuredRecipesDTO,
+            categories: await this.recipesService.getCategories(),
         };
     }
 
@@ -40,6 +41,32 @@ export class RecipesController {
         this.logger.log('Getting random recipe');
         const recipeSlug = await this.recipesService.randomRecipe();
         res.redirect(`/recipes/${recipeSlug}`);
+    }
+
+    @Get('categories')
+    async categories() {
+        const categories = await this.recipesService.getCategories();
+        return {
+            categories,
+        };
+    }
+
+    @Get('categories/:slug')
+    @Render('recipes/list')
+    async recipesByCategory(@Param('slug') slug: string) {
+        const recipes = await this.recipesService.getRecipesByCategory(slug);
+        return {
+            recipes,
+        };
+    }
+
+    @Get('recipes/all')
+    @Render('recipes/list')
+    async allRecipes() {
+        const recipes = await this.recipesService.getAllRecipes(10);
+        return {
+            recipes,
+        };
     }
 
     @Get(':slug')

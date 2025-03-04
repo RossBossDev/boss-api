@@ -61,4 +61,5 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 .yarn/cache
 
 public/*
+!public/img
 !public/.gitkeep

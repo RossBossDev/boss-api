@@ -736,6 +736,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/inter@npm:^5.2.5":
+  version: 5.2.5
+  resolution: "@fontsource/inter@npm:5.2.5"
+  checksum: 10c0/071e12a6a9c8cf6e95da43ba532e80eb8e35c1ffd2384c9c6555d7f222e306e22968f7c4fff5065b9f81503db622cf3de8a688fbc1cb0c04aa3803c797f6f6a0
+  languageName: node
+  linkType: hard
+
 "@inertiajs/core@npm:2.0.3":
   version: 2.0.3
   resolution: "@inertiajs/core@npm:2.0.3"
@@ -1424,6 +1431,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@main-boss-monorepo/frontend@workspace:apps/frontend"
   dependencies:
+    "@fontsource/inter": "npm:^5.2.5"
     "@inertiajs/react": "npm:^2.0.3"
     "@radix-ui/react-accordion": "npm:^1.2.3"
     "@radix-ui/react-slot": "npm:^1.1.2"
