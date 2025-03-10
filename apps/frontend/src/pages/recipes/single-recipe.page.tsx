@@ -4,6 +4,7 @@ import Layout from '@/layout';
 import { Recipe } from '@/types/recipe';
 import { Link } from '@inertiajs/react';
 import { ChefHat, Clock, Users, Utensils } from 'lucide-react';
+
 export default function SingleRecipePage({ recipe }: { recipe: Recipe }) {
     return (
         <Layout>
@@ -62,9 +63,7 @@ export default function SingleRecipePage({ recipe }: { recipe: Recipe }) {
                         <img
                             src={recipe.image_path || '/placeholder.svg'}
                             alt={recipe.name}
-                            fill
-                            className="object-cover"
-                            priority
+                            className="object-cover w-full h-full"
                         />
                     </div>
                 </div>
