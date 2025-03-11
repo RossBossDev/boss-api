@@ -9,6 +9,7 @@ import {
 import { Category } from './category.entity';
 import { Ingredient } from './ingredient.entity';
 import { Step } from './step.entity';
+
 @Entity('recipes')
 export class Recipe {
     @PrimaryGeneratedColumn()

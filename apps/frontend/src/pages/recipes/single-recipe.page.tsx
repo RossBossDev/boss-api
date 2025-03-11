@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import Layout from '@/layout';
 import { Recipe } from '@/types/recipe';
 import { Link } from '@inertiajs/react';
-import { ChefHat, Clock, Users, Utensils } from 'lucide-react';
+import { ChefHat, Clock, Printer, Users, Utensils } from 'lucide-react';
 
 export default function SingleRecipePage({ recipe }: { recipe: Recipe }) {
     return (
@@ -119,6 +119,21 @@ export default function SingleRecipePage({ recipe }: { recipe: Recipe }) {
                         </CardContent>
                     </Card>
                 </div>
+
+                {recipe.card_link && (
+                    <div className="mt-8 flex justify-center">
+                        <Link
+                            href={recipe.card_link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Button variant="outline" size="lg">
+                                <Printer className="mr-2 h-5 w-5" />
+                                Printable Recipe Card
+                            </Button>
+                        </Link>
+                    </div>
+                )}
 
                 <div className="mt-12 text-center">
                     <h3 className="text-xl font-medium mb-4">
